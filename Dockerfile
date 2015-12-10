@@ -1,6 +1,6 @@
 FROM autodeskcloud/pod:1.0.7
 
-RUN apt-get update && apt-get install -y build-essential libtcmalloc-minimal4 libssl-dev libboost-all-dev cmake
+RUN apt-get update && apt-get install -y libtcmalloc-minimal4 libssl-dev libboost-all-dev
 RUN ln -s /usr/lib/libtcmalloc_minimal.so.4 /usr/lib/libtcmalloc_minimal.so
 
 ADD BUILD /opt/crow/BUILD
