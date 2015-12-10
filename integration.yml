@@ -1,3 +1,18 @@
+-
+  step:     download crow from git
+  debug:    true
+  shell:
+    - rm -rf build && git clone https://github.com/ipkn/crow.git build
+
+-
+  step:     build crow
+  debug:    true
+  cwd:      build
+  requires: cpp
+  shell:
+    - /usr/bin/cmake .
+    - /usr/bin/make
+    - cp amalgamate/crow_all.h ../src/crow.h
 
 -
   step:     build the REST endpoint
@@ -6,6 +21,7 @@
   requires: cpp
   shell:
     - /usr/bin/g++ -O3 -std=c++11 endpoint.cpp -lboost_thread -lboost_system -pthread -o endpoint
+    - mv endpoint ../resources
 
 -
   step:  add a label, build and push the image
