@@ -1,5 +1,14 @@
+
 -
-  step:  add a label, build and push the resulting docker image to {{image}}
+  step:     build the REST endpoint
+  debug:    true
+  cwd:      src
+  requires: cpp
+  shell:
+    - /usr/bin/g++ -O3 -std=c++11 endpoint.cpp -lboost_thread -lboost_system -pthread -o endpoint
+
+-
+  step:  add a label, build and push the image
   debug: true
   shell:
     - echo "$MESSAGE ($COMMIT_SHORT)" > BUILD

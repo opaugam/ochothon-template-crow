@@ -1,8 +1,5 @@
-FROM autodeskcloud/pod:1.0.7
+FROM quay.io/opaugam/marathon-helloworld-sample-crow
 
-ADD BUILD /opt/{{tag}}/BUILD
-ADD resources/pod /opt/{{tag}}/pod
-ADD resources/hook.py /opt/{{tag}}/
-ADD resources/static /opt/{{tag}}/static
-ADD resources/supervisor /etc/supervisor/conf.d
+ADD BUILD /opt/crow/BUILD
+ADD build/endpoint /opt/crow/endpoint
 CMD exec /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
