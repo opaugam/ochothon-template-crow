@@ -1,0 +1,7 @@
+-
+  step:  add a label, build and push the resulting docker image to {{image}}
+  debug: true
+  shell:
+    - echo "$MESSAGE ($COMMIT_SHORT)" > BUILD
+    - tools push -t latest {{image}} -d
+
