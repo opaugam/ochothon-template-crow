@@ -12,7 +12,7 @@
   shell:
     - /usr/bin/cmake .
     - /usr/bin/make
-    - cp amalgamate/crow_all.h ../src/crow.h
+    - cp -R include ../src
 
 -
   step:     build the REST endpoint
@@ -20,7 +20,7 @@
   cwd:      src
   requires: cpp
   shell:
-    - /usr/bin/g++ -O3 -std=c++11 endpoint.cpp -lboost_thread -lboost_system -pthread -o endpoint
+    - /usr/bin/g++ -O3 -std=c++11 endpoint.cpp -lboost_thread -lboost_system -pthread -I include -o endpoint
     - mv endpoint ../resources
 
 -
@@ -28,5 +28,4 @@
   debug: true
   shell:
     - echo "$MESSAGE ($COMMIT_SHORT)" > BUILD
-    - tools push -t latest {{image}} -d
-
+    - tools push -t latest quay.io/opaugam/helloworld-web-cpp -d
