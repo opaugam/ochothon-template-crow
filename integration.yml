@@ -28,4 +28,4 @@
   debug: true
   shell:
     - echo "$MESSAGE ($COMMIT_SHORT)" > BUILD
-    - tools push -t latest quay.io/opaugam/helloworld-web-cpp -d
+    - tools push -t latest {{image}} -d

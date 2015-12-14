@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
     class Strategy(Piped):
 
-        cwd = '/opt/crow'
+        cwd = '/opt/{{tag}}'
 
         check_every = 60.0
 
@@ -66,8 +66,7 @@ if __name__ == '__main__':
         def configure(self, cluster):
 
             #
-            # - replace the statement below to spawn the process you wish ochopod to supervise
-            # - by default the pod will sleep for one hour and then go idle
+            # - run the crow endpoint
             #
             return './endpoint', {}
 
