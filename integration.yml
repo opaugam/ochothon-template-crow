@@ -12,12 +12,12 @@
   shell:
     - /usr/bin/cmake .
     - /usr/bin/make
-    - cp -R include ../src
+    - cp -R include ../code
 
 -
   step:     build the REST endpoint
   debug:    true
-  cwd:      src
+  cwd:      code
   requires: cpp
   shell:
     - /usr/bin/g++ -O3 -std=c++11 endpoint.cpp -lboost_thread -lboost_system -pthread -I include -o endpoint
